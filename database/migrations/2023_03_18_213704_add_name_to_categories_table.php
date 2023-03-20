@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('categories', function (Blueprint $table) {
-            $table->string('name',100);
+            $table->string('title',100);
+            $table->string('slug', 200);
         });
     }
 

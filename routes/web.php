@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Test\TestController;
 /*
@@ -13,10 +14,14 @@ use App\Http\Controllers\Test\TestController;
 |
 */
 
-/**Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
-});*/
+});
 
-Route::get('/', [TestController::class, 'index']);
+//Route::get('/', [TestController::class, 'index']);
+
+Route::resource('post', PostController::class);
+
+//Route::get('post', [PostController::class, 'index']);
 
 
