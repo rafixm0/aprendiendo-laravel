@@ -11,6 +11,8 @@ use App\Http\Requests\Post\PutRequest;
 use App\Models\Category;
 use App\Models\Post;
 
+use Illuminate\Support\Facades\Validator;
+
 class PostController extends Controller
 {
     /**
@@ -43,17 +45,12 @@ class PostController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        //dd();
-        //dd(request('title'));
-        //echo request('title'); // también echo $request->input('title');
-        //echo $request->input('title');
+        //dd(request()->validated());
+        Post::create($request->validated());
 
-        //$data = $request->validated();
-        //$data['slug'] = Str::slug($data['title']);
-        // dd($data);
-
-        //Post::create(request()->all());
-        Post::create($request()->validated());
+        //dd($request->all());
+        //$validatedData = $request->validate();
+        
 
         return to_route('post.index');
     }
@@ -91,7 +88,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        echo "Destruido";
-        //return to_route('post.index');
+        $post->delete();
+        return to_route('post.index');
     }
 }

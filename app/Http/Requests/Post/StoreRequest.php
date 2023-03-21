@@ -3,10 +3,11 @@
 namespace App\Http\Requests\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Str;
+
 
 class StoreRequest extends FormRequest
 {
+    
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -15,16 +16,7 @@ class StoreRequest extends FormRequest
         return true;
     }
 
-    // Creada por Rafix para validación:
-
-    // protected function prepareForValidation()
-    // {
-    //     //
-    //     $this->merge([
-    //         'slug' => Str::of($this->slug)->slug()
-    //     ]);
-
-    // }
+    
 
 
     /**
@@ -35,10 +27,13 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|unique:posts|max:255',
+            'title' => 'required|max:255',
             'description' => 'required|min:7|max:255',
-            'slug' => 'required|max:255|unique:posts',
-            'content' => 'required'
+            'slug' => 'required|max:255',
+            'content' => 'required',
+            'category_id' => 'required|integer',
+            'posted' => 'required',
+            'image' => 'required'
         ];
     }
 }

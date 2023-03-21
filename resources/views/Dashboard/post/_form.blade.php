@@ -10,7 +10,7 @@
         <input type="text" name="content" id="" value="{{ old('content', $post->slug)}}"><br>
 
         <label for="">Descripción:</label>
-        <textarea name="description" id="" cols="30" rows="10" value="{{ old('description', $post->description)}}"></textarea>
+        <textarea name="description" id="" cols="30" rows="10" >{{ old('description', $post->description)}}</textarea>
         <br>
         <label for="">Categoría:</label>
         <select name="category_id">
@@ -25,6 +25,6 @@
         </select> 
 
         {{-- OJO BORRAR ESTO: --}}
-        <br><input type="text" name="image" id=""><br>  
+        <br><input type="text" name="image" id="" value="{{ old('image', $post->image)}}"><br>  
 
         <br><button type="submit">Enviar</button>
