@@ -11,7 +11,7 @@ use App\Http\Requests\Post\PutRequest;
 use App\Models\Category;
 use App\Models\Post;
 
-use Illuminate\Support\Facades\Validator;
+//use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -60,7 +60,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        $categories = Category::get();
+        return view('Dashboard.post.show', compact('post', 'categories'));
     }
 
     /**
