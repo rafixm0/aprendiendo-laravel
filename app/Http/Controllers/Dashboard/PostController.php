@@ -80,8 +80,9 @@ class PostController extends Controller
     {
         //dd($request->validated());
         $post->update($request->validated());
+        //$request->session()->flash('status', 'Registro actualizado.');
 
-        return to_route('post.index');
+        return to_route('post.index')->with('status', 'Registro actualizado.');
     }
 
     /**
