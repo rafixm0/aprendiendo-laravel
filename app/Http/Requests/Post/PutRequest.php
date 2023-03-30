@@ -29,7 +29,8 @@ class PutRequest extends FormRequest
             //'slug' => 'required|max:255|unique:posts',
             'content' => 'required',
             'category_id' => 'required|integer',
-            'posted' => 'required'
+            'posted' => 'required',
+            'image' => 'mimes:jpg,jpeg,png|max:10240'
         ];
     }
 }

@@ -25,6 +25,10 @@
         </select> 
 
         {{-- OJO BORRAR ESTO: --}}
-        <br><input type="text" name="image" id="" value="{{ old('image', $post->image)}}"><br>  
+        {{-- <br><input type="text" name="image" id="" value="{{ old('image', $post->image)}}"><br>   --}}
+        @if (isset($task) && $task == 'edit')
+            <label for="">Imagen: </label>
+            <input type="file" name="image" id="">
+        @endif
 
         <br><button type="submit">Enviar</button>
